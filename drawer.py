@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 
 import random
-import sys
-import time
 
 import pygame
 from pygame import gfxdraw
@@ -11,7 +9,7 @@ pygame.init()
 
 screen = pygame.display.set_mode((800, 700))
 
-x = {'1': 10, '2': 360, '3': 710}
+x = {'1': 10, '2': 360, '3': 710}  # TODO: Automatically calculate the point positions
 y = {'1': 606, '2': 10, '3': 606}
 
 red = (250, 0, 0)
@@ -25,41 +23,24 @@ rand_x = random.randint(x['1'], x['3'])
 rand_y = random.randint(y['1'], y['3'])
 pygame.gfxdraw.pixel(screen, rand_x, rand_y, green)
 
+pygame.display.update()
+
 
 def drawer(gen_x, gen_y):
-    try:
+    while True:
         dice = str(random.randint(1, 3))
-        # pygame.gfxdraw.pixel(screen, int(gen_x), int(gen_y), green)
 
-        if gen_x >= x[dice]:
-            gen_x = (abs(gen_x-x[dice])/2)+x[dice]
-        elif gen_x < x[dice]:
-            gen_x = (abs(x[dice]-gen_x)/2)+x[dice]
-
-        if gen_y >= y[dice]:
-            gen_y = (abs(gen_y-y[dice])/2)+y[dice]
-        elif gen_y < y[dice]:
-            gen_y = (abs(y[dice]-gen_y)/2)+y[dice]
+        gen_x = (gen_x + x[dice]) / 2
+        gen_y = (gen_y + y[dice]) / 2
 
         pygame.gfxdraw.pixel(screen, int(gen_x), int(gen_y), green)
-
         pygame.display.update()
 
-        dict_ret = {'x': gen_x, 'y': gen_y}
-        return dict_ret
-
-        # drawer(gen_x, gen_y)
-
-    except RecursionError:
-        time.sleep(10)
-        sys.exit(1)
-
+# TODO: Calculate the number of iterations etc.
 
 if __name__ == '__main__':
     generated_points = drawer(rand_x, rand_y)
-    while True:
-        drawer(generated_points['x'], generated_points['y'])
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit(0)
+        #for event in pygame.event.get():
+            #if event.type == pygame.QUIT:
+                #pygame.quit()
+                #sys.exit(0)
