@@ -6,5 +6,5 @@ Based on this Numberphile video: https://www.youtube.com/watch?v=kbKtFN71Lfs&t=3
 and this Geogebra file: https://www.geogebra.org/m/yr2XXPms
 
 ### TODO ###
-* Add a way to add more points
-* Add an iteration counter
+* Menu
+* Arrow keys for per-point iteration
