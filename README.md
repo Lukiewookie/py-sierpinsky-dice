@@ -1,10 +1,7 @@
-# py-sierpinsky-dice
+# py-chaos-game
 
-A Python program to estimate a Sierpinski triangle using a triangle and a dice.
-
-Based on this Numberphile video: https://www.youtube.com/watch?v=kbKtFN71Lfs&t=304s
-and this Geogebra file: https://www.geogebra.org/m/yr2XXPms
+A list of Python 3 scripts generating different shapes based on the [chaos game](https://en.wikipedia.org/wiki/Chaos_game) using Pygame.
 
 ### TODO ###
-* Menu
+* Menu (inctead of separate files, have different classes)
 * Arrow keys for per-point iteration
